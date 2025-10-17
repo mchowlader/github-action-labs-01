@@ -1,6 +1,32 @@
 name: Basic Checkout Lab
-
 on:
   push:
     branches:
-      -main
+      - main
+
+jobs:
+  basic-checkout:
+    runs-on: ubuntu-latest
+    steps:
+      #step-1 basic repository checkout
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      #step-2 list repository content
+      - name: list files
+        run: ls -la
+      
+      #step-3 Display system info
+      - name: Show system info
+        run: |
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Operating System: $(uname -a)"
+          echo "Current Directory: $(pwd)"
+
+      #step-4 Check software version
+      - name: Check versions
+        run: |
+          echo "Node Version: $(node --version)"
+          echo "Python Version: $(python --version)"
+          echo "Git version $(git --version)"
+          echo ".Net Version $(dotnet --version)"
