@@ -1,4 +1,4 @@
-name: Basic Checkout Lab
+name: Basic Checkout Lab 2
 on:
   push:
     branches:
